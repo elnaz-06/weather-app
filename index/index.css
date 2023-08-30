@@ -1,0 +1,128 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: #222;
+    background-image:  url('https://source.unsplash.com/1600x900/?landscape');
+    font-size: 120%;
+   
+  }
+
+  .card {
+    background-color: #000;
+    opacity: 70%;
+    width: 450px;
+    height: 250px;
+    max-width: 500px;
+    border-radius: 30px;
+    padding: 2em;
+  }
+  
+  .search {
+    font: bold;
+    display: flex;
+    justify-content: end;
+  }
+
+.searchBox {
+    width: 250px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background: #dddddd2b;
+    color: white;
+}
+
+  .search-button {
+  margin-left: 7px;
+  border-radius: 50%;
+  border: none;
+  height: 44px;
+  width: 44px;
+  outline: none;
+  background: #dddddd2b;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  }
+
+  .search-button:hover {
+    background-color: #f4f4f46b;;
+  }
+
+  .location {
+    color: #ffff;
+    position: relative;
+    top: -35px;
+    text-align: left;
+    font-size: larger;
+  }
+
+  .number {
+    color: #ffff;
+    text-align: left;
+    font-size: 90px;
+    position: relative;
+    top: 40px;
+    
+  }
+
+  .riz {
+    color: #ffff;
+    font-size: 15px;
+    position: relative;
+    left: 30px;
+    bottom: 30px;
+  }
+
+  #icon {
+    position: relative;
+    left: -150px;
+    bottom: 28px;
+    margin: 10px;
+    width: 0px;
+    height: 0px;
+  }
+
+  .detail {
+    color: #ffff;
+    text-align: left;
+    position: relative;
+    left: 270px;   
+    bottom: 40px;
+  }
+
+  .moods {
+    position: relative;
+    bottom: 22px;
+  }
+
+
+  .date {
+    color: #ffff;
+    text-align: left;
+    position: relative;
+    left: 270px;   
+    bottom: 5px;
+  }
+
+  .fahrenheit {
+    cursor: pointer;
+  }
+
+  .extraresource {
+    color: #ffff;
+    text-align: left;
+    position: relative;
+    left: -20px;
+    top: 9px;
+    font-size: smaller;
+  }
+
+  .link {
+  text-decoration: none;
+  color: gray;
+  }
