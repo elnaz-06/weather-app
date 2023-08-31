@@ -55,10 +55,6 @@ function applyWeather(response) {
   windspeed.innerHTML = `Wind speed: ${speed} km/h`;
 }
 
-
-
-
-
 let now = new Date();
 let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -70,7 +66,27 @@ let currentHour = ("0" + now.getHours()).slice(-2);
 let currentMinute = ("0" + now.getMinutes()).slice(-2);
 
 let dateElement = document.querySelector(".date");
-dateElement.textContent = `${currentDay}, ${currentMonth} ${currentDate}, ${currentHour}:${currentMinute}`;
+dateElement.textContent = `${currentDay}, ${currentMonth} ${currentDate}`;
+let dayAfterFullDayIndex1 = (now.getDay() + 1) % 7; // Get the index of the day after fullDay
+let dayAfterFullDay1 = days[dayAfterFullDayIndex1];
+let day11 = document.querySelector("#day1");
+day11.textContent = dayAfterFullDay1;
+let dayAfterFullDayIndex2 = (now.getDay() + 2) % 7; // Get the index of the day after fullDay
+let dayAfterFullDay2 = days[dayAfterFullDayIndex2];
+let day22 = document.querySelector("#day2");
+day22.textContent = dayAfterFullDay2;
+let dayAfterFullDayIndex3 = (now.getDay() + 3) % 7; // Get the index of the day after fullDay
+let dayAfterFullDay3 = days[dayAfterFullDayIndex3];
+let day33 = document.querySelector("#day3");
+day33.textContent = dayAfterFullDay3;
+let dayAfterFullDayIndex4 = (now.getDay() + 4) % 7; // Get the index of the day after fullDay
+let dayAfterFullDay4 = days[dayAfterFullDayIndex4];
+let day44 = document.querySelector("#day4");
+day44.textContent = dayAfterFullDay4;
+let dayAfterFullDayIndex5 = (now.getDay() + 5) % 7; // Get the index of the day after fullDay
+let dayAfterFullDay5 = days[dayAfterFullDayIndex5];
+let day55 = document.querySelector("#day5");
+day55.textContent = dayAfterFullDay5;
 
 function changer(event) {
 
