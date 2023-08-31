@@ -18,11 +18,14 @@ function showPosition() {
   axios.get(apiUrl).then(showWeather);
 }
 
+
 function showWeather(response) {
   let lon = response.data[0].lon;
   let lat = response.data[0].lat;
-  let apiUrlSecond = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=5f472b7acba333cd8a035ea85a0d4d4c`;
+  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=5&units=metric&appid=a1fc6c47eedab75e9417e2ded88555c5`;
+  let apiUrlSecond = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=a1fc6c47eedab75e9417e2ded88555c5`;
   axios.get(apiUrlSecond).then(applyWeather);
+  axios.get(apiUrlForecast).then(forecastTemp);
 }
 
 function applyWeather(response) {
@@ -53,6 +56,51 @@ function applyWeather(response) {
   temprach.innerHTML = temp;
   detailing.innerHTML = `Humidity: ${currenthumidity}%`;
   windspeed.innerHTML = `Wind speed: ${speed} km/h`;
+}
+
+function forecastTemp(response) {
+  console.log(response);
+
+  let day1Temp = Math.round(response.data.list[0].main.temp);
+  let day1TempElement = document.querySelector("#day1temp");
+  let img1 = document.querySelector("#img1");
+  let iconInfo1 = response.data.list[0].weather[0].icon ;
+  let img1Url = `https://openweathermap.org/img/wn/${iconInfo1}@2x.png`;
+
+  let day2Temp = Math.round(response.data.list[1].main.temp);
+  let day2TempElement = document.querySelector("#day2temp");
+  let img12 = document.querySelector("#img2");
+  let iconInfo2 = response.data.list[1].weather[0].icon ;
+  let img2Url = `https://openweathermap.org/img/wn/${iconInfo2}@2x.png`;
+
+  let day3Temp = Math.round(response.data.list[2].main.temp);
+  let day3TempElement = document.querySelector("#day3temp");
+  let img3 = document.querySelector("#img3");
+  let iconInfo3 = response.data.list[2].weather[0].icon ;
+  let img3Url = `https://openweathermap.org/img/wn/${iconInfo3}@2x.png`;
+
+  let day4Temp = Math.round(response.data.list[3].main.temp);
+  let day4TempElement = document.querySelector("#day4temp");
+  let img4 = document.querySelector("#img4");
+  let iconInfo4 = response.data.list[3].weather[0].icon ;
+  let img4Url = `https://openweathermap.org/img/wn/${iconInfo4}@2x.png`;
+
+  let day5Temp = Math.round(response.data.list[4].main.temp);
+  let day5TempElement = document.querySelector("#day5temp");
+  let img5 = document.querySelector("#img5");
+  let iconInfo5 = response.data.list[4].weather[0].icon ;
+  let img5Url = `https://openweathermap.org/img/wn/${iconInfo5}@2x.png`;
+
+  day1TempElement.innerHTML = day1Temp;
+  day2TempElement.innerHTML = day2Temp;
+  day3TempElement.innerHTML = day3Temp;
+  day4TempElement.innerHTML = day4Temp;
+  day5TempElement.innerHTML = day5Temp; 
+  img1.src = img1Url;
+  img2.src = img2Url;
+  img3.src = img3Url;
+  img4.src = img4Url;
+  img5.src = img5Url;
 }
 
 let now = new Date();
