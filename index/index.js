@@ -22,8 +22,8 @@ function showPosition() {
 function showWeather(response) {
   let lon = response.data[0].lon;
   let lat = response.data[0].lat;
-  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=5&units=metric&appid=a1fc6c47eedab75e9417e2ded88555c5`;
-  let apiUrlSecond = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=a1fc6c47eedab75e9417e2ded88555c5`;
+  let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=5b6f6f15a41430o43b1dff475td897aa`;
+  let apiUrlSecond = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=5b6f6f15a41430o43b1dff475td897aa`;
   axios.get(apiUrlSecond).then(applyWeather);
   axios.get(apiUrlForecast).then(forecastTemp);
 }
@@ -31,28 +31,28 @@ function showWeather(response) {
 function applyWeather(response) {
   console.log(response);
 
-  let cityname = response.data.name;
+  let cityname = response.data.city;
   let citymainname = document.querySelector(".location");
 
-  let temp = Math.round(response.data.main.temp);
+  let temp = Math.round(response.data.temperature.current);
   let temprach = document.querySelector(".number");
 
-  let weathermood = response.data.weather[0].main;
+  let weathermood = response.data.condition.description;
   let weathermainmood = document.querySelector(".weathermoods");
 
-  let currenthumidity =  Math.round(response.data.main.humidity);
+  let currenthumidity =  Math.round(response.data.temperature.humidity);
   let detailing = document.querySelector(".humidity");
 
   let speed =  Math.round(response.data.wind.speed);
   let windspeed = document.querySelector(".wind");
 
   let img = document.querySelector(".icon-img");
-  let iconInfo = response.data.weather[0].icon ;
-  let imgUrl = `https://openweathermap.org/img/wn/${iconInfo}@2x.png`;
+  let iconInfo = response.data.condition.icon ;
+  let imgUrl = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconInfo}.png`;
 
   img.src = imgUrl;
   citymainname.innerHTML = cityname;
-  weathermainmood.innerHTML = weathermood;
+  weathermainmood.innerHTML = weathermood.charAt(0).toUpperCase() + weathermood.slice(1);
   temprach.innerHTML = temp;
   detailing.innerHTML = `Humidity: ${currenthumidity}%`;
   windspeed.innerHTML = `Wind speed: ${speed} km/h`;
@@ -61,35 +61,35 @@ function applyWeather(response) {
 function forecastTemp(response) {
   console.log(response);
 
-  let day1Temp = Math.round(response.data.list[0].main.temp);
+  let day1Temp = Math.round(response.data.daily[0].temperature.day);
   let day1TempElement = document.querySelector("#day1temp");
   let img1 = document.querySelector("#img1");
-  let iconInfo1 = response.data.list[0].weather[0].icon ;
-  let img1Url = `https://openweathermap.org/img/wn/${iconInfo1}@2x.png`;
+  let iconInfo1 = response.data.daily[0].condition.icon ;
+  let img1Url = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconInfo1}.png`;
 
-  let day2Temp = Math.round(response.data.list[1].main.temp);
+  let day2Temp = Math.round(response.data.daily[1].temperature.day);
   let day2TempElement = document.querySelector("#day2temp");
-  let img12 = document.querySelector("#img2");
-  let iconInfo2 = response.data.list[1].weather[0].icon ;
-  let img2Url = `https://openweathermap.org/img/wn/${iconInfo2}@2x.png`;
+  let img2 = document.querySelector("#img2");
+  let iconInfo2 = response.data.daily[1].condition.icon ;
+  let img2Url = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconInfo2}.png`;
 
-  let day3Temp = Math.round(response.data.list[2].main.temp);
+  let day3Temp = Math.round(response.data.daily[2].temperature.day);
   let day3TempElement = document.querySelector("#day3temp");
   let img3 = document.querySelector("#img3");
-  let iconInfo3 = response.data.list[2].weather[0].icon ;
-  let img3Url = `https://openweathermap.org/img/wn/${iconInfo3}@2x.png`;
+  let iconInfo3 = response.data.daily[2].condition.icon ;
+  let img3Url = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconInfo3}.png`;
 
-  let day4Temp = Math.round(response.data.list[3].main.temp);
+  let day4Temp = Math.round(response.data.daily[3].temperature.day);
   let day4TempElement = document.querySelector("#day4temp");
   let img4 = document.querySelector("#img4");
-  let iconInfo4 = response.data.list[3].weather[0].icon ;
-  let img4Url = `https://openweathermap.org/img/wn/${iconInfo4}@2x.png`;
+  let iconInfo4 = response.data.daily[3].condition.icon ;
+  let img4Url = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconInfo4}.png`;
 
-  let day5Temp = Math.round(response.data.list[4].main.temp);
+  let day5Temp = Math.round(response.data.daily[4].temperature.day);
   let day5TempElement = document.querySelector("#day5temp");
   let img5 = document.querySelector("#img5");
-  let iconInfo5 = response.data.list[4].weather[0].icon ;
-  let img5Url = `https://openweathermap.org/img/wn/${iconInfo5}@2x.png`;
+  let iconInfo5 = response.data.daily[4].condition.icon ;
+  let img5Url = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconInfo5}.png`;
 
   day1TempElement.innerHTML = day1Temp;
   day2TempElement.innerHTML = day2Temp;

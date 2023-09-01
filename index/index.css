@@ -15,7 +15,7 @@ body {
     background-color: #000;
     opacity: 70%;
     width: 450px;
-    height: 450px;
+    height: 420px;
     max-width: 500px;
     border-radius: 30px;
     padding: 2em;
@@ -28,7 +28,7 @@ body {
   }
 
 .searchBox {
-    width: 150px;
+    width: 180px;
     border-radius: 15px;
     border: none;
     outline: none;
@@ -115,7 +115,7 @@ body {
     text-align: left;
     position: relative;
     left: -30px;
-    top: 53px;
+    top: 33px;
     font-size: smaller;
 
   }
@@ -129,18 +129,20 @@ body {
     height: 20px;
     color: #ffff;
     text-align: center;
+    column-gap: 25px;
+    font-size: larger;
   }
   
 .one , .three , .five {
     margin-top: 0px;
     position: relative;
-    top: -30px;
+    top: -70px;
   }
   
   .two , .four {
     margin-top: 0px;
     position: relative;
-    top: -70px;
+    top: -100px;
   }
   
   .forset-detail {
