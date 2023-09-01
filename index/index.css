@@ -111,11 +111,15 @@ body {
   }
 
   .extraresource {
-    color: #ffff;
-    text-align: left;
-    position: relative;
-    left: -30px;
-    top: 33px;
+    position: fixed;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 30px;
+    background-color: #000000;
+    color: #ffffff;
+    opacity: 70%;
+    text-align: center;
     font-size: smaller;
 
   }

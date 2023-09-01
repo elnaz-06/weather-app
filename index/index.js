@@ -18,7 +18,6 @@ function showPosition() {
   axios.get(apiUrl).then(showWeather);
 }
 
-
 function showWeather(response) {
   let lon = response.data[0].lon;
   let lat = response.data[0].lat;
@@ -102,6 +101,12 @@ function forecastTemp(response) {
   img4.src = img4Url;
   img5.src = img5Url;
 }
+
+let apiCard1Url = `https://api.shecodes.io/weather/v1/current?query=Tehran&key=5b6f6f15a41430o43b1dff475td897aa`;
+axios.get(apiCard1Url).then(applyWeather);
+
+let apiCard2Url = `https://api.shecodes.io/weather/v1/forecast?query=Tehran&key=5b6f6f15a41430o43b1dff475td897aa`;
+axios.get(apiCard2Url).then(forecastTemp);
 
 let now = new Date();
 let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
